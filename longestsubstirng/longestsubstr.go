@@ -10,14 +10,14 @@ import "strings"
 //Input: "abcabcbb"
 //Output: 3
 //Explanation: The answer is "abc", with the length of 3.
-func lengthOfLongestSubstring(str string)(res int){
+func lengthOfLongestSubstring(str string) (res int) {
 	sub := ""
-	for i:=0; i < len(str); i++ {
-		c :=  string(str[i])
+	for i := 0; i < len(str); i++ {
+		c := string(str[i])
 		if index := strings.Index(sub, c); index < 0 {
 			sub += c
-		}else {
-			if res < len(sub){
+		} else {
+			if res < len(sub) {
 				res = len(sub)
 			}
 
@@ -25,7 +25,7 @@ func lengthOfLongestSubstring(str string)(res int){
 		}
 	}
 
-	if res < len(sub){
+	if res < len(sub) {
 		res = len(sub)
 	}
 

@@ -1,4 +1,4 @@
-package algo
+package binary_search
 
 /*
 	搜索旋转排序数组最小值

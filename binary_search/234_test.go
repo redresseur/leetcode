@@ -1,4 +1,4 @@
-package palindorme
+package binary_search
 
 import (
 	"testing"

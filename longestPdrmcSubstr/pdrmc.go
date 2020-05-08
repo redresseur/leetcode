@@ -11,8 +11,8 @@ package longestPdrmcSubstr
 
 func getRange(s string, i, j int, up, down *int) {
 	ti, tj := 0, 0
-	for ;i >=0 && j <= len(s) - 1; i, j = i - 1,j + 1{
-		if s[i] != s[j]{
+	for ; i >= 0 && j <= len(s)-1; i, j = i-1, j+1 {
+		if s[i] != s[j] {
 			break
 		}
 
@@ -20,32 +20,32 @@ func getRange(s string, i, j int, up, down *int) {
 		tj = j
 	}
 
-	if tj - ti > *up - *down{
+	if tj-ti > *up-*down {
 		*up = tj
 		*down = ti
 	}
 }
 
-func longestPalindrome(s string) (res string){
+func longestPalindrome(s string) (res string) {
 	up, down, lenStr := 0, 0, len(s)
-	if 0 == lenStr{
+	if 0 == lenStr {
 		return
 	}
 
-	for i := 0; i < lenStr - 1; i++{
-		if i < lenStr - 2 {
-			getRange(s, i, i + 2, &up, &down)
+	for i := 0; i < lenStr-1; i++ {
+		if i < lenStr-2 {
+			getRange(s, i, i+2, &up, &down)
 		}
 
-		if  i < lenStr - 1 {
-			getRange(s, i, i + 1, &up, &down)
+		if i < lenStr-1 {
+			getRange(s, i, i+1, &up, &down)
 		}
 
-		if up >= lenStr - 1{
+		if up >= lenStr-1 {
 			break
 		}
 	}
 
-	res = s[down: up + 1]
+	res = s[down : up+1]
 	return
 }

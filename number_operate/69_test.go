@@ -1,4 +1,4 @@
-package sqrt
+package number_operate
 
 import (
 	"math"
@@ -18,7 +18,7 @@ func TestSqrtFloat(t *testing.T) {
 		b := mySqrtFloat2(float64(i))
 		if int(a*100000) != int(b*100000) {
 			t.Fatal(i, a, b)
-		}else {
+		} else {
 			t.Log(i, a, b)
 		}
 	}
@@ -37,7 +37,6 @@ func TestSqrtFloat1(t *testing.T) {
 	i := 0.01
 	t.Log(i, math.Sqrt(float64(i)), mySqrtFloat2(float64(i)))
 }
-
 
 func BenchmarkMySqrt(b *testing.B) {
 	for i := 0; i < b.N; i++ {

@@ -1,6 +1,8 @@
-package algo
+package binary_search
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestSearchLittle(t *testing.T) {
 	t.Log(searchLittle([]int{4, 5, 6, 1, 2, 3}))

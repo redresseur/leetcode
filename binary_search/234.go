@@ -1,4 +1,4 @@
-package palindorme
+package binary_search
 
 /*
 	234 回文链表
@@ -29,7 +29,7 @@ func isPalindrome1(head *ListNode) (res bool) {
 	}
 
 	// 判断长度奇偶，非空为奇数，空为偶数
-	if nil != fast{
+	if nil != fast {
 		slow = slow.Next
 	}
 
@@ -57,12 +57,12 @@ func isPalindrome(head *ListNode) (res bool) {
 		fast = fast.Next.Next
 	}
 	// 判断长度奇偶，非空为奇数，空为偶数
-	if nil != fast{
+	if nil != fast {
 		slow = slow.Next
 	}
 
 	// 反转后半段
-	for slow != nil{
+	for slow != nil {
 		tmp = slow
 		slow = slow.Next
 		tmp.Next = reverse

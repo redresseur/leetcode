@@ -14,18 +14,17 @@ var str = `{ "A": 1,
 
 func TestNestedDict_Transfer(t *testing.T) {
 	dict := NewNestedDict()
-	if err := dict.Transform([]byte(str)); err != nil{
+	if err := dict.Transform([]byte(str)); err != nil {
 		t.Fatalf("TestNestedDict_Transfer: %s", err.Error())
-	}else {
+	} else {
 		trans, _ := json.Marshal(&dict.root)
 		t.Logf("passed : %s", trans)
 	}
 
-	if data, err := dict.Marshal(); err != nil{
+	if data, err := dict.Marshal(); err != nil {
 		t.Fatalf("TestNestedDict_Transfer: %s", err.Error())
-	}else {
+	} else {
 		t.Logf("passed : %s", string(data))
 	}
-
 
 }

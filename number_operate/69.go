@@ -1,4 +1,5 @@
-package sqrt
+package number_operate
+
 /*
 	69 求数的平方根
 	https://leetcode-cn.com/problems/sqrtx/

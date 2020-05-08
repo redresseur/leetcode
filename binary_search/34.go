@@ -1,4 +1,4 @@
-package algo
+package binary_search
 
 func searchMin(nums []int, target int) int {
 	numsLen := len(nums)
