@@ -152,3 +152,50 @@ func (t *Tree) Remove(data int) {
 
 	return
 }
+
+// 二叉树深度优先遍历，非递归
+// 采用栈数据结构：根节点初始栈; 弹出栈 -> 记录数据 -> 右节点入栈 -> 左节点入栈; 循环直到栈为空
+func (t *Tree) DfsErgodic() []int {
+	queue := []*Node{t.root}
+	datas := []int{}
+	for length := 1; length != 0; length = len(queue) {
+		node := queue[length-1]
+		datas = append(datas, node.data)
+		queue = queue[:length-1]
+		if node.right != nil {
+			queue = append(queue, node.right)
+		}
+
+		if node.left != nil {
+			queue = append(queue, node.left)
+		}
+	}
+
+	return datas
+}
+
+// 二叉树广度优先遍历
+// 采用队列的方式,节点入队列-> 节点出队列，左、右子节点入队列，记录每一层的节点，直到队列为空
+func (t *Tree) BfsErgodic() []int {
+	queue := []*Node{t.root}
+	datas := []int{}
+	for len(queue) != 0 {
+		tmp := []*Node{}
+		for _, node := range queue {
+			datas = append(datas, node.data)
+			if node.left != nil {
+				tmp = append(tmp, node.left)
+				//datas = append(datas, node.left.data)
+			}
+
+			if node.right != nil {
+				tmp = append(tmp, node.right)
+				//datas = append(datas, node.right.data)
+			}
+		}
+
+		queue = tmp
+	}
+
+	return datas
+}
