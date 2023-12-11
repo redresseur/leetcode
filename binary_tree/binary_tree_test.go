@@ -2,8 +2,9 @@ package binary_tree
 
 import (
 	"fmt"
-	"github.com/magiconair/properties/assert"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestTree_Insert(t *testing.T) {
@@ -15,8 +16,8 @@ func TestTree_Insert(t *testing.T) {
 
 	tree.DLR()
 	fmt.Println()
-	assert.Equal(t, tree.Find(16), -1)
-	assert.Equal(t, tree.Find(7), 2)
+	assert.Equal(t, -1, tree.Find(16))
+	assert.Equal(t, 2, tree.Find(7))
 
 	for _, e := range elements {
 		tree.Remove(e)

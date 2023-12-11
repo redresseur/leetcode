@@ -1,5 +1,8 @@
 package binary_search
 
+/*
+	34. 在排序数组中查找元素的第一个和最后一个位置
+*/
 func searchMin(nums []int, target int) int {
 	numsLen := len(nums)
 	if numsLen == 0 {

@@ -6,26 +6,19 @@ package binary_search
 
 // # 153
 func findMin(nums []int) int {
-	numsLen := len(nums)
-	if numsLen == 0 {
-		return -1
-	} else if numsLen == 1 {
-		return nums[0]
-	}
-
-	low, mid, high := 0, numsLen-1, 0
-	for low <= high {
-		mid = low + (high-low)>>1
-		if mid != 0 && nums[mid] < nums[mid-1] {
-			return nums[mid]
+	low, high := 0, len(nums)-1
+	for low < high {
+		pivot := low + (high-low)/2
+		if nums[pivot] < nums[high] {
+			high = pivot
 		} else {
-			if nums[mid] >= nums[0] {
-				low = mid + 1
-			} else {
-				high = mid - 1
-			}
+			low = pivot + 1
 		}
 	}
-
-	return nums[0]
+	return nums[low]
 }
+
+// 作者：LeetCode-Solution
+// 链接：https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array/solution/xun-zhao-xuan-zhuan-pai-xu-shu-zu-zhong-5irwp/
+// 来源：力扣（LeetCode）
+// 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
